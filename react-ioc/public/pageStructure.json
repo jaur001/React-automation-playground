@@ -1,0 +1,48 @@
+{
+  "id": "Box",
+  "props":{
+    "items":[
+      {
+        "id": "Box 2",
+        "props":{
+          "items":[
+            {
+              "id": "Box 3",
+              "props":{
+                "items":[
+                  {
+                    "id": "Text Input",
+                    "props":{
+                      "titleToDisplay":"Text Input",
+                      "placeholder": "Fill input"
+                    },
+                    "requireRedux": true,
+                    "initialValue":"Initial Value",
+                    "render": "TextInput",
+                    "propsToPopulate": []
+                  }
+                ]
+              },
+              "requireRedux": true,
+              "render": "Box",
+              "propsToPopulate": ["items"]
+            }
+          ]
+        },
+        "render": "Box",
+        "propsToPopulate": ["items"]
+      },
+      {
+        "id": "Text 2",
+        "props":{
+          "text":"Dynamic Text 2"
+        },
+        "requireRedux": true,
+        "render": "Text",
+        "propsToPopulate": []
+      }
+    ]
+  },
+  "render": "Box",
+  "propsToPopulate": ["items"]
+}

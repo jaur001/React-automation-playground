@@ -1,0 +1,4 @@
+node_modules/
+react-ioc/node_modules/
+react-ioc/node_modules/.bin/acorn
+*.cmd

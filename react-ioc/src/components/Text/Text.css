@@ -1,0 +1,16 @@
+.Text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.textTitle {
+  width: 15%;
+}
+
+.text {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin: auto;
+}
