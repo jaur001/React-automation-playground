@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { reactIocActionNames } from "../../../redux/confiReducer/ReactIOCActions";
 import { useEffect, useMemo, useState } from "react";
 
-function populatePageStructure(pageStructure,dynamicContent) {
+function populatePageStructure(pageStructure,components,resources) {
   const populatedPageStructure = {...pageStructure};
-  const newState = new PagePopulator(dynamicContent).populatePageStructure(populatedPageStructure);
+  const newState = new PagePopulator(components,resources).populatePageStructure(populatedPageStructure);
   return [newState, populatedPageStructure];
 }
 
@@ -14,9 +14,9 @@ function ComponentLoader(props) {
   const dispatch = useDispatch();
   const [newState, pageStructure] = useMemo(
     () => {
-      return populatePageStructure(props.pageStructure,props.dynamicContent);
+      return populatePageStructure(props.pageStructure,props.components,props.resources);
     },
-    [props.pageStructure, props.dynamicContent]
+    [props.pageStructure,props.components,props.resources]
   );
   useEffect(() => {
     if(!loaded){

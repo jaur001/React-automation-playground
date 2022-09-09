@@ -22,11 +22,12 @@ function prepareComponents(components) {
 function PageLoader(props) {
   const pageStructure = getPageStructure(props.path);
   const components = prepareComponents(props.components);
-  const dynamicContent = {...components,...props.functions,...props.resources};
   return (
     <ComponentLoader
       pageStructure={pageStructure}
-      dynamicContent={dynamicContent}
+      components={components}
+      resources={props.resources}
+
     />
   );
 }

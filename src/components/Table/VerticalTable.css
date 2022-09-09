@@ -1,6 +1,7 @@
 .VerticalTable{
   border:1px solid black;
 }
-.VerticalTable > th,td{
+.VerticalTable th,
+.VerticalTable td{
   border:1px solid black;
 }

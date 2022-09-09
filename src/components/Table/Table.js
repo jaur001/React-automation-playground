@@ -1,14 +1,10 @@
 function Table(props) {
-  props.rows.map(row => {
-    return row.map(cell => (
-      <td>{cell}</td>
+  const rows = props.rows.map((row,i) => {
+    return row.map((cell,j) => (
+      <td key={i+"-"+j}>{cell}</td>
     ));
   });
-  return (
-  <table>
-    {props.tableImpl.render("","",{headers:props.headers,rows:props.rows})}
-  </table>
-  );
+  return (props.tableImpl("","",{headers:props.headers,rows:rows}));
 }
 
 export default Table;

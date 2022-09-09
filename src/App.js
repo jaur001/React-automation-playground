@@ -2,17 +2,19 @@ import './App.css';
 import PageLoader from './components/ReactIOC/PageLoader/PageLoader';
 import Box from './components/Box/Box';
 import Text from './components/Text/Text';
+import StyleText from './components/StyleText/StyleText';
 import TextInput from './components/TextInput/TextInput';
 import Table from './components/Table/Table';
 import VerticalTable from './components/Table/VerticalTable';
+import HorizontalTable from './components/Table/HorizontalTable';
 
 function App() {
-  const components = {Box,Text,TextInput,Table,VerticalTable};
+  const components = {Box,Text,StyleText,TextInput,Table,VerticalTable,HorizontalTable};
   const test = () => {
-    console.log(this);
+    console.log("test");
   }
   return (
-    <PageLoader path="./pageStructure.json" components={components} functions={{test}} resources={{}}/>
+    <PageLoader path="./pageStructure1.json" components={components} resources={{test}}/>
   );
 }
 

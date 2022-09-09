@@ -1,0 +1,51 @@
+{
+  "id": "Box 1",
+  "props":{
+    "items":[
+      {
+        "id": "Box 2",
+        "props":{
+          "items":[
+            {
+              "id": "Text 1",
+              "props":{
+                "fontSize": 20,
+                "children":"Text"
+              },
+              "exception":["children"],
+              "requireRedux": true,
+              "render": "Text"
+            },
+            {
+              "id": "Text Input",
+              "props":{
+                "titleToDisplay":"Text Input",
+                "placeholder": "Fill input",
+                "function":"test"
+              },
+              "requireRedux": true,
+              "initialValue":"Initial Value",
+              "render": "TextInput"
+            }
+            
+          ]
+        },
+        "render": "Box"
+      },
+      {
+        "id": "Text 2",
+        "props":{
+          "text":"Dynamic Style Text",
+          "style":{
+            "fontSize": 30,
+            "fontFamily": "'Times New Roman', Times, serif",
+            "margin": 20
+          }
+        },
+        "requireRedux": true,
+        "render": "StyleText"
+      }
+    ]
+  },
+  "render": "Box"
+}

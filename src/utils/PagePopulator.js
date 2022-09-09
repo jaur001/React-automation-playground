@@ -2,8 +2,9 @@ import ReactIOCException from './ReactIOCException'
 
 export default class PagePopulator {
 
-  constructor(dynamicContent) {
-    this.dynamicContent = dynamicContent;
+  constructor(components,resources) {
+    this.components = components;
+    this.resources = resources;
   }
 
   populatePageStructure(json) {
@@ -19,39 +20,54 @@ export default class PagePopulator {
       stateProp[json.id] = json.initialValue ? json.initialValue : {};
       stateProp = stateProp[json.id];
     }
-    if (json.hasOwnProperty("props"))
-      this.checkJson(json["props"], stateProp);
+    if (json.hasOwnProperty("props")){
+      const exceptions = json["exception"]?json["exception"]:[];
+      this.checkJson(json["props"], stateProp,exceptions);
+    }
   }
 
   populatePropValue(json, prop, propValue) {
     if (typeof propValue !== 'function'){
-      const content = this.dynamicContent[propValue];
-      if(prop==="render"){
-        json[prop] = (parentId, suffixId, extraProps) => {
-          return content(json, parentId, suffixId, extraProps);
-        };
-      } else json[prop] = content;
+      if(this.components.hasOwnProperty(propValue))
+        this.addRender(json,prop,propValue);
+      else{
+        const resource = this.resources[propValue];
+        json[prop] = resource;
+      };
     }
   }
 
-  checkObject(obj, stateProp) {
-    if (Array.isArray(obj)) this.checkJsonArray(obj, stateProp);
-    else if (PagePopulator.isComponent(obj)) this.populateComponent(obj, stateProp);
-    else this.checkJson(obj,stateProp);
+  addRender(json,prop,propValue){
+    const render = this.components[propValue];
+    json[prop] = (parentId, suffixId, extraProps) => {
+      return render(json, parentId, suffixId, extraProps);
+    };
   }
 
-  checkJsonArray(jsonArray,stateProp) {
+  checkObject(obj, stateProp,exceptions) {
+    if (Array.isArray(obj)) this.checkJsonArray(obj, stateProp,exceptions);
+    else if (PagePopulator.isComponent(obj)) this.populateComponent(obj, stateProp);
+    else this.checkJson(obj,stateProp,exceptions);
+  }
+
+  checkJsonArray(jsonArray,stateProp,exceptions) {
     jsonArray.forEach((prop) => {
-      if (typeof prop === "object") this.checkObject(prop,stateProp);
+      if (typeof prop === "object") this.checkObject(prop,stateProp,exceptions);
     });
   }
 
-  checkJson(json,stateProp) {
+  checkJson(json,stateProp,exceptions) {
     for (const prop in json) {
       const propValue = json[prop];
-      if (typeof propValue === "object") this.checkObject(propValue,stateProp);
-      else if(this.dynamicContent.hasOwnProperty(propValue)) this.populatePropValue(json, prop ,propValue);
+      if (typeof propValue === "object") this.checkObject(propValue,stateProp,exceptions);
+      else if(this.matchComponentOrResource(propValue) && !exceptions.includes(prop))
+        this.populatePropValue(json, prop ,propValue);
     }
+  }
+
+  matchComponentOrResource(propValue){
+    return this.components.hasOwnProperty(propValue) ||
+      this.resources.hasOwnProperty(propValue);
   }
 
   static isComponent(json) {

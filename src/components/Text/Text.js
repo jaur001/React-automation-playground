@@ -1,7 +1,9 @@
 
 function Text(props) {
   return (
-    <h2>{props.text}</h2>
+    <div style={{fontSize: props.fontSize, fontWeight: "bold"}}>
+      {props.children}
+    </div>
   );
 }
 

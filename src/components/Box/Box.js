@@ -1,3 +1,4 @@
+import Text from "../Text/Text";
 
 function Box(props) {
   const items = props.items;
@@ -6,7 +7,7 @@ function Box(props) {
   }
   return (
     <div>
-      <h2>Box Component</h2>
+      <Text fontSize={25}>Box</Text>
       {renderItems()}
     </div>
   );

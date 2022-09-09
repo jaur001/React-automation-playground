@@ -22,8 +22,8 @@ function TextInput(props) {
 
   return (
     <div className={`TextInput`}>
-      <h4>{props.titleToDisplay}</h4>
-      <input className={`textInput`} type="text" placeholder={props.placeholder} onChange={updateValueHandler} value={value}/>
+      <div className="title">{props.titleToDisplay}</div>
+      <input type="text" placeholder={props.placeholder} onChange={updateValueHandler} value={value}/>
     </div>
   );
 }

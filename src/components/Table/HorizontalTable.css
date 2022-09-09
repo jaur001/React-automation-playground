@@ -1,0 +1,7 @@
+.HorizontalTable{
+  border:1px solid blue;
+}
+.HorizontalTable th,
+.HorizontalTable td{
+  border:1px solid blue;
+}
