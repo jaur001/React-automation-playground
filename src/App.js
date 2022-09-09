@@ -1,5 +1,5 @@
 import './App.css';
-import PageLoader from './components/ReactIOC/PageLoader/PageLoader';
+import ReactIoc from "./ReactIoc";
 import Box from './components/Box/Box';
 import Text from './components/Text/Text';
 import StyleText from './components/StyleText/StyleText';
@@ -14,7 +14,7 @@ function App() {
     console.log("test");
   }
   return (
-    <PageLoader path="./pageStructure1.json" components={components} resources={{test}}/>
+    <ReactIoc.PageLoader path="./pageStructure1.json" components={components} resources={{test}}/>
   );
 }
 

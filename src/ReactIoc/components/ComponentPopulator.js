@@ -1,4 +1,4 @@
-import ReactIOCException from './ReactIOCException'
+import ReactIOCException from '../utils/ReactIOCException'
 
 export default class PagePopulator {
 
@@ -7,7 +7,7 @@ export default class PagePopulator {
     this.resources = resources;
   }
 
-  populatePageStructure(json) {
+  populateComponents(json) {
     const state = {};
     this.populateComponent(json,state);
     return state;

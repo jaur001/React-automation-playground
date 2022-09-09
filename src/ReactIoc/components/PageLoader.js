@@ -1,5 +1,5 @@
-import { getPageStructure } from "../../../utils/ReactIOCUtils";
-import ComponentLoader from "../ComponentLoader/ComponentLoader";
+import PageReader from "./PageReader";
+import ComponentLoader from "./ComponentLoader";
 
 function prepareComponent(populatedComponents,compName){
   const Component = populatedComponents[compName];
@@ -20,7 +20,7 @@ function prepareComponents(components) {
 }
 
 function PageLoader(props) {
-  const pageStructure = getPageStructure(props.path);
+  const pageStructure = PageReader.getPageStructure(props.path);
   const components = prepareComponents(props.components);
   return (
     <ComponentLoader

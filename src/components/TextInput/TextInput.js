@@ -1,18 +1,17 @@
 import { useSelector,useDispatch } from "react-redux";
-import { reactIocActionNames } from "../../redux/confiReducer/ReactIOCActions";
-import { getProperty } from "../../utils/ReduxUtils";
+import ReactIocRedux from "../../ReactIocRedux";
 
 import './TextInput.css';
 
 function TextInput(props) {
 
-  const value = useSelector(state => getProperty(props.id,state));
+  const value = useSelector(state => ReactIocRedux.getProperty(props.id,state));
   const dispatch = useDispatch();
 
   const updateValueHandler = (evt) => {
     const newValue = evt.target.value;
     dispatch({
-      type: reactIocActionNames.updateProperty,
+      type: ReactIocRedux.actionNames.updateProperty,
       id: props.id,
       value: newValue,
     });  

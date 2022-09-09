@@ -1,12 +1,13 @@
 import { createStore } from "redux";
-import configReducer from "./confiReducer/configReducer";
+import ReactIocRedux from "../ReactIocRedux";
 
+const actions = {};
 
-const store = createStore(configReducer);
+const store = createStore(ReactIocRedux.buildReducer(actions));
 
 store.subscribe(() => {
-  //console.log("State updated");
-  //console.log(store.getState());
+  console.log("State updated");
+  console.log(store.getState());
 });
 
 export default store;
