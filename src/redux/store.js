@@ -1,9 +1,9 @@
 import { createStore } from "redux";
-import ReactIocRedux from "../ReactIocRedux";
+import {ReducerBuilder} from "react-automation";
 
 const actions = {};
 
-const store = createStore(ReactIocRedux.buildReducer(actions));
+const store = createStore(ReducerBuilder.buildReducer(actions));
 
 store.subscribe(() => {
   console.log("State updated");

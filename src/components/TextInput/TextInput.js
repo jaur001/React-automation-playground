@@ -1,20 +1,14 @@
 import { useSelector,useDispatch } from "react-redux";
-import ReactIocRedux from "../../ReactIocRedux";
+import {StateController} from "react-automation";
 
 import './TextInput.css';
 
 function TextInput(props) {
-
-  const value = useSelector(state => ReactIocRedux.getProperty(props.id,state));
   const dispatch = useDispatch();
-
+  const value = useSelector(state => StateController.getProperty(props.id,state));
   const updateValueHandler = (evt) => {
     const newValue = evt.target.value;
-    dispatch({
-      type: ReactIocRedux.actionNames.updateProperty,
-      id: props.id,
-      value: newValue,
-    });  
+    StateController.updateProperty(props.id,newValue,dispatch);
   }
 
   props.function();
