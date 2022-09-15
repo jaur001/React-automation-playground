@@ -3,7 +3,7 @@ import Text from "../Text/Text";
 function Box(props) {
   const items = props.items;
   const renderItems = () => {
-    return items.map(item => item.render(props.id));
+    return items.map((Item,index) => <Item key={index} parentId={props.id}/>);
   }
   return (
     <div>
