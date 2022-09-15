@@ -1,5 +1,5 @@
 import { useSelector,useDispatch } from "react-redux";
-import {StateController} from "react-automation";
+import StateController from "../../redux/StateController";
 
 import './TextInput.css';
 

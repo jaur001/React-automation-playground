@@ -4,7 +4,7 @@ function Table(props) {
       <td key={i+"-"+j}>{cell}</td>
     ));
   });
-  return (props.tableImpl("","",{headers:props.headers,rows:rows}));
+  return (<props.TableImpl headers={props.headers} rows={rows} />);
 }
 
 export default Table;

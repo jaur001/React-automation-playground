@@ -13,7 +13,7 @@
                 "children":"Text"
               },
               "exception":["children"],
-              "render": "Text"
+              "Component": "Text"
             },
             {
               "id": "Text Input",
@@ -24,12 +24,12 @@
               },
               "requireRedux": true,
               "initialValue":"Initial Value",
-              "render": "TextInput"
+              "Component": "TextInput"
             }
             
           ]
         },
-        "render": "Box"
+        "Component": "Box"
       },
       {
         "id": "Text 2",
@@ -41,9 +41,9 @@
             "margin": 20
           }
         },
-        "render": "StyleText"
+        "Component": "StyleText"
       }
     ]
   },
-  "render": "Box"
+  "Component": "Box"
 }

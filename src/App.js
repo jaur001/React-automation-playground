@@ -1,5 +1,5 @@
 import './App.css';
-import {PageLoader} from 'react-automation';
+import PageLoader from './components/PageLoader';
 import Box from './components/Box/Box';
 import Text from './components/Text/Text';
 import StyleText from './components/StyleText/StyleText';
