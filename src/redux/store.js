@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import ReducerBuilder from "./ReducerBuilder";
+import {ReducerBuilder} from "react-automation";
 
 const actions = {};
 
