@@ -42,6 +42,14 @@
           }
         },
         "Component": "StyleText"
+      },
+      {
+        "id": "Button",
+        "props":{
+          "action":"Page2",
+          "label": "Go to Page 2"
+        },
+        "Component":"Button"
       }
     ]
   },

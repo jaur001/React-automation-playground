@@ -1,0 +1,27 @@
+{
+  "props":{
+    "children":[
+      {
+        "id": "Table",
+        "props":{
+          "TableImpl":"HorizontalTable",
+          "headers":["Company","Contact","Country"],
+          "rows":[
+            ["Alfreds Futterkiste","Maria Anders","Germany"],
+            ["Centro comercial Moctezuma","Francisco Chang","Mexico"]
+          ]
+        },
+        "Component": "Table"
+      },
+      {
+        "id": "Button",
+        "props":{
+          "action":"Page1",
+          "label": "Go to Page 1"
+        },
+        "Component":"Button"
+      }
+    ]
+  },
+  "Component":"div"
+}
