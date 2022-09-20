@@ -11,6 +11,8 @@
             ["Centro comercial Moctezuma","Francisco Chang","Mexico"]
           ]
         },
+        "requireRedux": true,
+        "initialValue":"Table",
         "Component": "Table"
       },
       {
