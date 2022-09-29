@@ -19,8 +19,7 @@
               "id": "Text Input",
               "props":{
                 "titleToDisplay":"Text Input",
-                "placeholder": "Fill input",
-                "function":"test"
+                "placeholder": "Fill input"
               },
               "requireRedux": true,
               "initialValue":"Initial Value",
@@ -35,6 +34,7 @@
         "id": "Text 2",
         "props":{
           "text":"Dynamic Style Text",
+          "function":"test",
           "style":{
             "fontSize": 30,
             "fontFamily": "'Times New Roman', Times, serif",
