@@ -1,5 +1,6 @@
 
 function StyleText(props) {
+  props.function();
   return (
     <div style={props.style}>{props.text}</div>
   );
